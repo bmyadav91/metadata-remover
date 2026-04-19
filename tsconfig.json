@@ -1,8 +1,29 @@
 {
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
-    "types": ["jest"]
+    "types": [
+      "jest"
+    ],
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "target": "esnext",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@ui": [
+        "./src/shared/ui/index"
+      ]
+    },
+    "verbatimModuleSyntax": false
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["**/node_modules", "**/Pods"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "nativewind-env.d.ts"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/Pods"
+  ]
 }

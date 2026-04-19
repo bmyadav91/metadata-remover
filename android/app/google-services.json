@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "622686895967",
+    "project_id": "metadata-remover-6ddae",
+    "storage_bucket": "metadata-remover-6ddae.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622686895967:android:be52d919705216333640ea",
+        "android_client_info": {
+          "package_name": "com.metadataremover"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr0GqCxZ_SrDAv2ExR-eAQwqr3i7MyHwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622686895967:android:20c6867e326ab49f3640ea",
+        "android_client_info": {
+          "package_name": "com.whatbm.metacleaner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr0GqCxZ_SrDAv2ExR-eAQwqr3i7MyHwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
