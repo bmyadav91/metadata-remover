@@ -1,5 +1,5 @@
 import { View, StyleSheet, Pressable } from "react-native";
-import { ScrollScreen, AppIcon, Text, Button } from "@/shared/ui";
+import { ScrollScreen, Screen, AppIcon, Text, Button } from "@/shared/ui";
 
 // root 
 import { APP_ROUTES } from "@/app/navigation/routes";
@@ -44,61 +44,63 @@ export function HomeScreen() {
     };
 
     return (
-        <ScrollScreen
-            contentContainerStyle={[
-                styles.container,
-                { flexGrow: 1 }
-            ]}
-        >
-
-            {/* Main Upload Section */}
-            <Pressable
-                style={[styles.uploadArea, { borderColor: theme.card }]}
-                onPress={onHandlePick}
+        <Screen>
+            <ScrollScreen
+                contentContainerStyle={[
+                    styles.container,
+                    { flexGrow: 1 }
+                ]}
             >
-                <AppIcon name="upload-file" size={90} color={theme.text} />
 
-                <View style={styles.textGroup}>
-                    <Text style={[styles.text, styles.headingText]}>Select files</Text>
+                {/* Main Upload Section */}
+                <Pressable
+                    style={[styles.uploadArea, { borderColor: theme.card }]}
+                    onPress={onHandlePick}
+                >
+                    <AppIcon name="Upload" size={90} color={theme.text} />
 
-                    <Text style={[styles.text, { color: theme.textDim }]}>
-                        Upload one or more files to view or remove metadata.
+                    <View style={styles.textGroup}>
+                        <Text style={[styles.text, styles.headingText]}>Select files</Text>
+
+                        <Text style={[styles.text, { color: theme.textDim }]}>
+                            Upload one or more files to view or remove metadata.
+                        </Text>
+                    </View>
+
+                    <Button
+                        title="Choose File"
+                        icon={<AppIcon name="Upload" size={22} />}
+                        onPress={onHandlePick}
+                        loading={loading}
+                    />
+
+                    {error && (
+                        <Text style={[styles.text, { color: "red" }]}>{error}</Text>
+                    )}
+                </Pressable>
+
+                {/* Privacy & Info Section */}
+                <View style={styles.footer}>
+                    <Text style={[styles.text, { color: theme.textDim, letterSpacing: .5 }]}>
+                        Your files are processed entirely on this device.
+                        They are never uploaded to any server.
+                    </Text>
+
+                    <Text style={styles.text}>
+                        By using this tool, you agree to our{" "}
+                        <Text
+                            style={{ color: theme.primary }}
+                            onPress={() =>
+                                navigation.navigate(APP_ROUTES.PRIVACY_FEATURE.PRIVACY_POLICY_TERMS)
+                            }
+                        >
+                            Privacy Policy & Terms.
+                        </Text>
                     </Text>
                 </View>
 
-                <Button
-                    title="Choose File"
-                    icon={<AppIcon name="upload" size={22} />}
-                    onPress={onHandlePick}
-                    loading={loading}
-                />
-
-                {error && (
-                    <Text style={[styles.text, { color: "red" }]}>{error}</Text>
-                )}
-            </Pressable>
-
-            {/* Privacy & Info Section */}
-            <View style={styles.footer}>
-                <Text style={[styles.text, { color: theme.textDim, letterSpacing: .5 }]}>
-                    Your files are processed entirely on this device.
-                    They are never uploaded to any server.
-                </Text>
-
-                <Text style={styles.text}>
-                    By using this tool, you agree to our{" "}
-                    <Text
-                        style={{ color: theme.primary }}
-                        onPress={() =>
-                            navigation.navigate(APP_ROUTES.PRIVACY_FEATURE.PRIVACY_POLICY_TERMS)
-                        }
-                    >
-                        Privacy Policy & Terms.
-                    </Text>
-                </Text>
-            </View>
-
-        </ScrollScreen>
+            </ScrollScreen>
+        </Screen>
     );
 };
 

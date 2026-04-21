@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 // ui 
-import { ScrollScreen, AppIcon, AppSwitch } from '@/shared/ui';
+import { ScrollScreen, Screen, AppIcon, AppSwitch } from '@/shared/ui';
 import { useTheme } from '@/shared/theme/useTheme';
 
 // constants 
@@ -27,40 +27,42 @@ export function PrivacySettingsScreen() {
     };
 
     return (
-        <ScrollScreen contentContainerStyle={styles.content}>
-            <View style={styles.header}>
-                <AppIcon name="security" size={50} color={theme.primary} />
-                <Text style={[styles.title, { color: theme.text }]}>Privacy & Security</Text>
-            </View>
-
-            <View style={[styles.card, { backgroundColor: theme.border, borderColor: theme.border }]}>
-                <Text style={[styles.cardTitle, { color: theme.primary }]}>100% Local Processing</Text>
-                <Text style={[styles.cardText, { color: theme.text }]}>
-                    Your files never leave this device. All metadata extraction and removal happens
-                    in your phone's memory. This app works perfectly without an internet connection.
-                </Text>
-            </View>
-
-            <View style={[styles.card, { backgroundColor: theme.border, borderColor: theme.border }]}>
-                <Text style={[styles.cardTitle, { color: theme.text }]}>Analytics & Improvement</Text>
-                <Text style={[styles.cardText, { color: theme.textDim }]}>
-                    We use anonymous crash reports and usage data to fix bugs and improve the experience.
-                    No personal data or file content is ever collected.
-                </Text>
-
-                <View style={styles.switchRow}>
-                    <Text style={[styles.switchLabel, { color: theme.text }]}>Share Anonymous Data</Text>
-                    <AppSwitch
-                        value={isEnabled}
-                        onValueChange={toggle}
-                    />
+        <Screen>
+            <ScrollScreen contentContainerStyle={styles.content}>
+                <View style={styles.header}>
+                    <AppIcon name="LockKeyhole" size={50} color={theme.primary} />
+                    <Text style={[styles.title, { color: theme.text }]}>Privacy & Security</Text>
                 </View>
-            </View>
 
-            <Text style={[styles.footerText, { color: theme.textDim }]}>
-                v{APP_CONSTANTS?.APP_VERSION}
-            </Text>
-        </ScrollScreen>
+                <View style={[styles.card, { backgroundColor: theme.border, borderColor: theme.border }]}>
+                    <Text style={[styles.cardTitle, { color: theme.primary }]}>100% Local Processing</Text>
+                    <Text style={[styles.cardText, { color: theme.text }]}>
+                        Your files never leave this device. All metadata extraction and removal happens
+                        in your phone's memory. This app works perfectly without an internet connection.
+                    </Text>
+                </View>
+
+                <View style={[styles.card, { backgroundColor: theme.border, borderColor: theme.border }]}>
+                    <Text style={[styles.cardTitle, { color: theme.text }]}>Analytics & Improvement</Text>
+                    <Text style={[styles.cardText, { color: theme.textDim }]}>
+                        We use anonymous crash reports and usage data to fix bugs and improve the experience.
+                        No personal data or file content is ever collected.
+                    </Text>
+
+                    <View style={styles.switchRow}>
+                        <Text style={[styles.switchLabel, { color: theme.text }]}>Share Anonymous Data</Text>
+                        <AppSwitch
+                            value={isEnabled}
+                            onValueChange={toggle}
+                        />
+                    </View>
+                </View>
+
+                <Text style={[styles.footerText, { color: theme.textDim }]}>
+                    v{APP_CONSTANTS?.APP_VERSION}
+                </Text>
+            </ScrollScreen>
+        </Screen>
     );
 }
 

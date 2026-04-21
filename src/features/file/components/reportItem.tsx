@@ -94,7 +94,7 @@ export const ReportItem = React.memo(({ item }: { item: ProcessedFileResult & fi
                     {newFileSize && (
                         <>
                             <AppIcon
-                                name="arrow-right-alt"
+                                name="ArrowRight"
                             />
                             <Text style={{ color: theme.textDim }}>{newFileSize}
                                 {newDimension && `\n${newDimension.width} x ${newDimension.height}`}

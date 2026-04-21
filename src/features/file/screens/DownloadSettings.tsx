@@ -1,5 +1,5 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
-import { ScrollScreen, View, Text, TextInput, AppSwitch, Button } from "@/shared/ui";
+import { ScrollScreen, Screen, View, Text, TextInput, AppSwitch, Button } from "@/shared/ui";
 
 import { APP_ROUTES } from "@/app/navigation/routes";
 
@@ -78,7 +78,7 @@ export function DownloadSettingsScreen() {
     };
 
     return (
-        <>
+        <Screen>
             <ScrollScreen
                 contentContainerStyle={[
                     styles.container,
@@ -165,7 +165,7 @@ export function DownloadSettingsScreen() {
                 style={{ borderRadius: 0 }}
                 onPress={handleSave}
             />
-        </>
+        </Screen>
     );
 }
 

@@ -31,7 +31,7 @@ export const ConsentPopup = () => {
 
                 <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.border }]}>
                     <View style={styles.header}>
-                        <AppIcon name="security" size={24} color={theme.primary} />
+                        <AppIcon name="LockKeyhole" size={24} color={theme.primary} />
                         <Text style={[styles.title, { color: theme.text }]}>Privacy & Improvement</Text>
                     </View>
 

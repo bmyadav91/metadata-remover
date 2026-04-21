@@ -116,7 +116,7 @@ export function FileDetailScreen() {
 
 
     return (
-        <>
+        <Screen>
             <ScrollScreen
                 contentContainerStyle={[
                     styles.container,
@@ -325,7 +325,7 @@ export function FileDetailScreen() {
                     />
                 </View>
             )}
-        </>
+        </Screen>
     )
 }
 

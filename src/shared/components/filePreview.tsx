@@ -12,7 +12,7 @@ const handleOpen = async (uri: string) => {
             await FileViewer.open(uri); // fallback for local files
         }
     } catch (e) {
-        Alert.alert('Error', 'Unable to open file');
+        // Alert.alert('Error', 'Unable to open file');
         console.log(e);
     }
 };
@@ -62,27 +62,27 @@ export const FilePreview = ({
             break;
 
         case "video":
-            content = <AppIcon name="video-file" size={fileWidth} />;
+            content = <AppIcon name="FilePlay" size={fileWidth} />;
             break;
 
         case "pdf":
-            content = <AppIcon name="picture-as-pdf" size={fileWidth} />;
+            content = <AppIcon name="FileText" size={fileWidth} />;
             break;
 
         case "audio":
-            content = <AppIcon name="audio-file" size={fileWidth} />;
+            content = <AppIcon name="Headphones" size={fileWidth} />;
             break;
 
         case "text":
-            content = <AppIcon name="text-snippet" size={fileWidth} />;
+            content = <AppIcon name="BookText" size={fileWidth} />;
             break;
 
         case "archive":
-            content = <AppIcon name="archive" size={fileWidth} />;
+            content = <AppIcon name="FileArchive" size={fileWidth} />;
             break;
 
         default:
-            content = <AppIcon name="attach-file" size={fileWidth} />;
+            content = <AppIcon name="Paperclip" size={fileWidth} />;
     }
 
     return (

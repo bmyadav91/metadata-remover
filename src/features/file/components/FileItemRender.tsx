@@ -78,7 +78,7 @@ export const FileItemRenderMemo = React.memo(({ item, index, onPress }: { item: 
                 style={{ marginRight: 10 }}
             >
                 <AppIcon
-                    name="remove-red-eye"
+                    name="Eye"
                 />
             </View>
 
