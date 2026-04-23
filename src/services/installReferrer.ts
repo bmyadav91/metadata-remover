@@ -94,8 +94,7 @@ const fetchInstallReferrer = (): Promise<string | null> => {
 
 const parseReferrer = (referrer: string): InstallReferrerType | null => {
     try {
-        const queryString = referrer.split('?')[1] || referrer;
-        const params = new URLSearchParams(queryString);
+        const params = new URLSearchParams(referrer);
 
         const utm_source = params.get('utm_source') ?? params.get('source');
         const utm_medium = params.get('utm_medium') ?? params.get('medium');
@@ -107,7 +106,7 @@ const parseReferrer = (referrer: string): InstallReferrerType | null => {
         if (utm_medium) result.utm_medium = utm_medium;
         if (utm_campaign) result.utm_campaign = utm_campaign;
 
-        return Object.keys(result).length > 0 ? result : null;
+        return Object.keys(result).length ? result : null;
     } catch {
         return null;
     }
