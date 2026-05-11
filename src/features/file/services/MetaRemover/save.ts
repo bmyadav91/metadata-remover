@@ -1,6 +1,5 @@
 import { CameraRoll } from '@react-native-camera-roll/camera-roll';
 import RNFS from 'react-native-fs';
-import { PermissionManager } from '@/services/Permissions';
 import { cleanup } from '../utils/cleanup';
 
 import { getExtensionFromPath } from '@/functions/extensionExtractor';

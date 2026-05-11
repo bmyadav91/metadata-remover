@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Text, AppIcon, Button } from '@/shared/ui';
 import { Modal, View, StyleSheet } from 'react-native';
 

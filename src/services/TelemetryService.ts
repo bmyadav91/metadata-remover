@@ -56,15 +56,6 @@ export class TelemetryService {
         try {
             await this.applyConsent(this.consent, this.isDev);
 
-            useConsentStore.subscribe(
-                (state) => state.consent,
-                (consent) => {
-                    console.log("📝 new consent: ", consent);
-                    this.consent = consent;
-                    void this.applyConsent(consent, this.isDev);
-                }
-            );
-
         } catch (error) {
             console.error('❌ TelemetryService: init failed', error);
         }

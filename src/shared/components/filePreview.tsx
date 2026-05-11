@@ -13,7 +13,7 @@ const handleOpen = async (uri: string) => {
         }
     } catch (e) {
         // Alert.alert('Error', 'Unable to open file');
-        console.log(e);
+        console.error("error while file opening: ", e);
     }
 };
 

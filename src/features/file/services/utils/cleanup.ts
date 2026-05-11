@@ -7,5 +7,6 @@ export const cleanup = async (tempPath?: string | null) => {
         await RNFS.unlink(tempPath);
     } catch (e) {
         console.error("Error while deleting tmp file by RNFS: ", e);
+        // if not throw then use here telementry crashlytics service to track what happend 
     }
 };

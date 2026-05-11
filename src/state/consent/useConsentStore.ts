@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { persist, subscribeWithSelector } from 'zustand/middleware';
+import { persist } from 'zustand/middleware';
 import { zustandStorage } from '@/infrastructure/storage/zustandStorage';
 import { consentType } from '@/types/consent';
 
@@ -18,32 +18,30 @@ const DEFAULT_CONSENT: consentType = {
 };
 
 export const useConsentStore = create<ConsentState>()(
-    subscribeWithSelector(
-        persist(
-            (set, get) => ({
-                consent: DEFAULT_CONSENT,
+    persist(
+        (set, get) => ({
+            consent: DEFAULT_CONSENT,
 
-                _hasHydrated: false,
-                setHasHydrated: (state) => set({ _hasHydrated: state }),
+            _hasHydrated: false,
+            setHasHydrated: (state) => set({ _hasHydrated: state }),
 
-                setConsent: (value: Partial<consentType>) =>
-                    set({
-                        consent: {
-                            ...get().consent,
-                            ...value,
-                        },
-                    }),
+            setConsent: (value: Partial<consentType>) =>
+                set({
+                    consent: {
+                        ...get().consent,
+                        ...value,
+                    },
+                }),
 
-                reset: () => set({ consent: DEFAULT_CONSENT }),
-            }),
-            {
-                name: 'consent-storage',
-                storage: zustandStorage,
-                onRehydrateStorage: () => (state) => {
-                    state?.setHasHydrated(true);
-                },
+            reset: () => set({ consent: DEFAULT_CONSENT }),
+        }),
+        {
+            name: 'consent-storage',
+            storage: zustandStorage,
+            onRehydrateStorage: () => (state) => {
+                state?.setHasHydrated(true);
             },
+        },
 
-        )
     )
 );

@@ -94,6 +94,7 @@ export function DownloadReportScreen() {
                             routes: [{ name: APP_ROUTES.HOME_FEATURE.HOME_MAIN }],
                         });
                     }}
+                    style={{ borderRadius: 0 }}
                 />
             </View>
         </Screen>
